@@ -1,3 +1,3 @@
-import Example from './example.component';
+import FilteringPane from './filtering-pane.component';
 
-export default Example;
+export default FilteringPane;
