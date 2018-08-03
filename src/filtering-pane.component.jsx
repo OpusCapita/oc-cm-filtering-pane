@@ -27,6 +27,10 @@ const AlignedSection = styled.div`
   }
 `;
 
+const RightAlignedSection = AlignedSection.extend`
+  justify-content: flex-end;
+`;
+
 class FilteringPane extends React.PureComponent {
   renderNavbar = () => {
     const {
@@ -50,16 +54,16 @@ class FilteringPane extends React.PureComponent {
 
   renderLeftAlignedContent = () => (
     !!this.props.leftAlignedContent &&
-    <AlignedSection className="aligned-section">
+    <AlignedSection className="left-aligned-section">
       {this.props.leftAlignedContent}
     </AlignedSection>
   );
 
   renderRightAlignedContent = () => (
     !!this.props.rightAlignedContent &&
-    <AlignedSection className="aligned-section right">
+    <RightAlignedSection className="right-aligned-sectio">
       {this.props.rightAlignedContent}
-    </AlignedSection>
+    </RightAlignedSection>
   );
 
   renderMenu = () => (

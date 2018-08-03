@@ -25,8 +25,8 @@ Also you need to configure sass loader, since all the styles are in sass format.
 
 | Prop name           | Type      | Default  | Description                                |
 | ------------------- | --------- | -------- | ------------------------------------------ |
-| class               | string    | ''       | ID for the DOM element |
-| id                  | string    | ''       | Class for the DOM element |
+| class               | string    | required | ID for the DOM element |
+| id                  | string    | required | Class for the DOM element |
 | tabs                | tabsType  |          | Defines options for the responsive navigation bar (see tabsType for more information). |
 | leftAlignedContent  | node      | null     | Left aligned content |
 | rightAlignedContent | node      | null     | Right aligned content |
