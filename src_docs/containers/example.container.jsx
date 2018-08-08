@@ -20,9 +20,7 @@ export default () => (
             </a>
           </Col>
         </Row>
-        <Panel>
-          <ExampleComponent />
-        </Panel>
+        <ExampleComponent />
       </Col>
     </Row>
   </Grid>
