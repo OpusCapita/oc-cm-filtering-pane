@@ -12,7 +12,7 @@ const FilteringPaneSection = styled.div`
   align-items: center;
   background-color: ${theme.contentBackgroundColor};
   width: calc(100% - 2 * ${theme.gutterWidth});
-  margin: ${theme.gutterWidth};
+  margin: ${theme.gutterWidth} ${theme.gutterWidth} 0 ${theme.gutterWidth};
   padding: ${theme.gutterWidth};
   .responsive-navbar-container {
     flex: 1 1 100%;    

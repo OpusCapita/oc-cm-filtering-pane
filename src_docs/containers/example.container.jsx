@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import ExampleComponent from '../components/example.component';
 import GithubLogo from '../images/logo-github.svg';
 
@@ -20,9 +20,7 @@ export default () => (
             </a>
           </Col>
         </Row>
-        <Panel>
-          <ExampleComponent />
-        </Panel>
+        <ExampleComponent />
       </Col>
     </Row>
   </Grid>
