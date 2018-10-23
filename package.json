@@ -100,7 +100,7 @@
   "dependencies": {
     "@opuscapita/oc-cm-common-layouts": "2.4.0",
     "@opuscapita/oc-cm-common-styles": "2.2.0",
-    "@opuscapita/react-dropdown": "2.1.4",
+    "@opuscapita/react-dropdown": "2.1.5",
     "@opuscapita/react-responsive-navbar": "3.1.7"
   },
   "repository": {
