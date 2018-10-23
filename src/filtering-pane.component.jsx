@@ -15,21 +15,22 @@ const FilteringPaneSection = styled.div`
   width: calc(100% - 2 * ${theme.gutterWidth});
   margin: ${theme.gutterWidth} ${theme.gutterWidth} 0 ${theme.gutterWidth};
   padding: ${theme.gutterWidth};
-  .responsive-navbar-container {
-    flex: 1 1 100%;    
-  }
 `;
 
 const AlignedSection = styled.div`
   display: flex;
-  flex: 1 1 50%;
+`;
+
+const LeftAlignedSection = styled(AlignedSection)`
+  justify-content: flex-start;
+  flex-wrap: wrap;
 `;
 
 const RightAlignedSection = styled(AlignedSection)`
-  display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   align-self: flex-end;
+  flex: 1 1 20%;
 `;
 
 class FilteringPane extends React.PureComponent {
@@ -53,33 +54,40 @@ class FilteringPane extends React.PureComponent {
     );
   };
 
-  renderLeftAlignedContent = () => (
-    !!this.props.leftAlignedContent &&
-    <AlignedSection className="left-aligned-section">
-      {this.props.leftAlignedContent}
-    </AlignedSection>
-  );
+  renderLeftAlignedContent = () => {
+    const { leftAlignedContent } = this.props;
+    return (
+      <LeftAlignedSection className="left-aligned-section">
+        {this.renderNavbar()}
+        {!!leftAlignedContent && leftAlignedContent}
+      </LeftAlignedSection>
+    );
+  };
 
-  renderRightAlignedContent = () => (
-    !!this.props.rightAlignedContent &&
-    <RightAlignedSection className="right-aligned-section">
-      {this.props.rightAlignedContent}
-      {this.renderMenu()}
-    </RightAlignedSection>
-  );
+  renderRightAlignedContent = () => {
+    const { rightAlignedContent } = this.props;
+    return (
+      <RightAlignedSection className="right-aligned-section">
+        {!!rightAlignedContent && rightAlignedContent}
+        {this.renderMenu()}
+      </RightAlignedSection>
+    );
+  };
 
-  renderMenu = () => (
-    !!this.props.menuItems.length &&
-    <DropdownMenu
-      id={`${this.props.id}_filtering-pane-dropdown-menu`}
-      menuItems={this.props.menuItems}
-    />
-  );
+  renderMenu = () => {
+    const { id, menuItems } = this.props;
+    return (
+      !!menuItems.length &&
+      <DropdownMenu
+        id={`${id}_filtering-pane-dropdown-menu`}
+        menuItems={menuItems}
+      />
+    );
+  };
 
   render = () => (
     <ThemeProvider theme={theme}>
       <FilteringPaneSection id={this.props.id} className={`oc-cm-filtering-pane ${this.props.className}`}>
-        {this.renderNavbar()}
         {this.renderLeftAlignedContent()}
         {this.renderRightAlignedContent()}
       </FilteringPaneSection>
