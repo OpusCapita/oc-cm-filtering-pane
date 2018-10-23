@@ -35,9 +35,9 @@ export default class ComponentView extends React.PureComponent {
 
   getAlignedContent = content => (
     <div style={{ 'line-height': '40px' }}>
-      <div style={{ 'vertical-align': 'middle' }}>
+      <span style={{ 'vertical-align': 'middle' }}>
         {content}
-      </div>
+      </span>
     </div>
   );
 
