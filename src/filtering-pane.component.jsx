@@ -1,34 +1,36 @@
-import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled, { ThemeProvider } from 'styled-components';
+
 import ResponsiveNavbar from '@opuscapita/react-responsive-navbar';
 import { DropdownMenu } from '@opuscapita/react-dropdown';
-
 import { theme } from '@opuscapita/oc-cm-common-layouts';
 
 const FilteringPaneSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-color: ${theme.contentBackgroundColor};
   width: calc(100% - 2 * ${theme.gutterWidth});
   margin: ${theme.gutterWidth} ${theme.gutterWidth} 0 ${theme.gutterWidth};
   padding: ${theme.gutterWidth};
-  .responsive-navbar-container {
-    flex: 1 1 100%;    
-  }
 `;
 
 const AlignedSection = styled.div`
   display: flex;
-  flex: 1 1 100%;
-  &.right {
-    justify-content: flex-end;
-  }
 `;
 
-const RightAlignedSection = AlignedSection.extend`
+const LeftAlignedSection = styled(AlignedSection)`
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
+
+const RightAlignedSection = styled(AlignedSection)`
   justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+  flex: 1 1 20%;
 `;
 
 class FilteringPane extends React.PureComponent {
@@ -52,35 +54,44 @@ class FilteringPane extends React.PureComponent {
     );
   };
 
-  renderLeftAlignedContent = () => (
-    !!this.props.leftAlignedContent &&
-    <AlignedSection className="left-aligned-section">
-      {this.props.leftAlignedContent}
-    </AlignedSection>
-  );
+  renderLeftAlignedContent = () => {
+    const { leftAlignedContent } = this.props;
+    return (
+      <LeftAlignedSection className="left-aligned-section">
+        {this.renderNavbar()}
+        {!!leftAlignedContent && leftAlignedContent}
+      </LeftAlignedSection>
+    );
+  };
 
-  renderRightAlignedContent = () => (
-    !!this.props.rightAlignedContent &&
-    <RightAlignedSection className="right-aligned-sectio">
-      {this.props.rightAlignedContent}
-    </RightAlignedSection>
-  );
+  renderRightAlignedContent = () => {
+    const { rightAlignedContent } = this.props;
+    return (
+      <RightAlignedSection className="right-aligned-section">
+        {!!rightAlignedContent && rightAlignedContent}
+        {this.renderMenu()}
+      </RightAlignedSection>
+    );
+  };
 
-  renderMenu = () => (
-    !!this.props.menuItems.length &&
-    <DropdownMenu
-      id={`${this.props.id}_filtering-pane-dropdown-menu`}
-      menuItems={this.props.menuItems}
-    />
-  );
+  renderMenu = () => {
+    const { id, menuItems } = this.props;
+    return (
+      !!menuItems.length &&
+      <DropdownMenu
+        id={`${id}_filtering-pane-dropdown-menu`}
+        menuItems={menuItems}
+      />
+    );
+  };
 
   render = () => (
-    <FilteringPaneSection id={this.props.id} className={`oc-cm-filtering-pane ${this.props.className}`}>
-      {this.renderNavbar()}
-      {this.renderLeftAlignedContent()}
-      {this.renderRightAlignedContent()}
-      {this.renderMenu()}
-    </FilteringPaneSection>
+    <ThemeProvider theme={theme}>
+      <FilteringPaneSection id={this.props.id} className={`oc-cm-filtering-pane ${this.props.className}`}>
+        {this.renderLeftAlignedContent()}
+        {this.renderRightAlignedContent()}
+      </FilteringPaneSection>
+    </ThemeProvider>
   );
 }
 
