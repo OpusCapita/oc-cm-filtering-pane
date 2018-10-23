@@ -33,7 +33,13 @@ export default class ComponentView extends React.PureComponent {
     activeKey: this.state.activeTab,
   });
 
-  getAlignedContent = content => <div>{content}</div>
+  getAlignedContent = content => (
+    <div style={{ 'line-height': '40px' }}>
+      <div style={{ 'vertical-align': 'middle' }}>
+        {content}
+      </div>
+    </div>
+  );
 
   getMenuItems = () => [{
     id: '1',
