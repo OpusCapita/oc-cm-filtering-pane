@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Updated npm packages
 
 ## 1.0.0
 * Aligned horizontally left aligned content vertically bottom
