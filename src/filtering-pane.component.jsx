@@ -8,9 +8,6 @@ import { theme } from '@opuscapita/oc-cm-common-layouts';
 
 const FilteringPaneSection = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   background-color: ${theme.contentBackgroundColor};
   width: calc(100% - 2 * ${theme.gutterWidth});
   margin: ${theme.gutterWidth} ${theme.gutterWidth} 0 ${theme.gutterWidth};
@@ -23,7 +20,6 @@ const AlignedSection = styled.div`
 
 const LeftAlignedSection = styled(AlignedSection)`
   justify-content: flex-start;
-  flex-wrap: wrap;
 `;
 
 const RightAlignedSection = styled(AlignedSection)`
@@ -50,15 +46,17 @@ class FilteringPane extends React.PureComponent {
         showNavItemBorder={showNavItemBorder}
         showNavItemTooltip={showNavItemTooltip}
         onSelect={onSelect}
+        componentLeft={this.renderLeftAlignedContent()}
+        componentRight={this.renderRightAlignedContent()}
       />
     );
   };
+
 
   renderLeftAlignedContent = () => {
     const { leftAlignedContent } = this.props;
     return (
       <LeftAlignedSection className="left-aligned-section">
-        {this.renderNavbar()}
         {!!leftAlignedContent && leftAlignedContent}
       </LeftAlignedSection>
     );
@@ -85,14 +83,24 @@ class FilteringPane extends React.PureComponent {
     );
   };
 
-  render = () => (
+  renderLeftAndRight = () => (
+    <React.Fragment>
+      {this.renderLeftAlignedContent()}
+      {this.renderRightAlignedContent()}
+    </React.Fragment>
+  );
+
+  hasTabs = () => (this.props.tabs && this.props.tabs !== 'undefined' && this.props.tabs.list.length !== 0);
+
+  render = () => {
+    const content = this.hasTabs() ? this.renderNavbar() : this.renderLeftAndRight();
+    return (
     <ThemeProvider theme={theme}>
       <FilteringPaneSection id={this.props.id} className={`oc-cm-filtering-pane ${this.props.className}`}>
-        {this.renderLeftAlignedContent()}
-        {this.renderRightAlignedContent()}
+       { content }
       </FilteringPaneSection>
-    </ThemeProvider>
-  );
+    </ThemeProvider>);
+  }
 }
 
 FilteringPane.propTypes = {
