@@ -4,6 +4,9 @@
 
 ## <next>
 
+## 1.0.2
+* Updated dependencies, refactored some styles
+
 ## 1.0.1
 * Updated npm packages
 
