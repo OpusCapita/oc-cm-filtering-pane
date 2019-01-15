@@ -30,6 +30,8 @@ const RightAlignedSection = styled(AlignedSection)`
 `;
 
 class FilteringPane extends React.PureComponent {
+  hasTabs = () => (this.props.tabs && this.props.tabs !== 'undefined' && this.props.tabs.list.length !== 0);
+
   renderNavbar = () => {
     const {
       activeKey,
@@ -90,16 +92,15 @@ class FilteringPane extends React.PureComponent {
     </React.Fragment>
   );
 
-  hasTabs = () => (this.props.tabs && this.props.tabs !== 'undefined' && this.props.tabs.list.length !== 0);
-
   render = () => {
     const content = this.hasTabs() ? this.renderNavbar() : this.renderLeftAndRight();
     return (
-    <ThemeProvider theme={theme}>
-      <FilteringPaneSection id={this.props.id} className={`oc-cm-filtering-pane ${this.props.className}`}>
-       { content }
-      </FilteringPaneSection>
-    </ThemeProvider>);
+      <ThemeProvider theme={theme}>
+        <FilteringPaneSection id={this.props.id} className={`oc-cm-filtering-pane ${this.props.className}`}>
+          { content }
+        </FilteringPaneSection>
+      </ThemeProvider>
+    );
   }
 }
 
