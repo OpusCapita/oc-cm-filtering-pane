@@ -105,7 +105,7 @@
     "@opuscapita/oc-cm-common-layouts": "2.5.3",
     "@opuscapita/oc-cm-common-styles": "3.0.0",
     "@opuscapita/react-dropdown": "2.2.1",
-    "@opuscapita/react-responsive-navbar": "3.2.2",
+    "@opuscapita/react-responsive-navbar": "3.3.0",
     "react-icons": "2.2.7",
     "react-immutable-proptypes": "2.1.0"
   },
