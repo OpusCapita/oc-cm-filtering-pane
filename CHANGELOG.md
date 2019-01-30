@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Updated npm components
 
 ## 1.0.2
 * Updated dependencies, refactored some styles
