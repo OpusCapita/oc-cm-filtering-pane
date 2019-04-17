@@ -1,0 +1,20 @@
+@import '~@opuscapita/oc-cm-common-styles/styles/app',
+'~@opuscapita/oc-cm-common-styles/styles/mixins',
+'~@opuscapita/oc-cm-common-styles/styles/bootstrap_v3_custom',
+'~@opuscapita/oc-cm-common-styles/styles/bootstrap_v3_overrides',
+'~@opuscapita/oc-cm-common-styles/styles/bootstrap_v3_without_icons',
+'~@opuscapita/oc-cm-common-styles/styles/buttons',
+'~@opuscapita/oc-cm-common-styles/styles/colors',
+'~@opuscapita/oc-cm-common-styles/styles/icons',
+'~@opuscapita/oc-cm-common-styles/styles/inputs',
+'~@opuscapita/oc-cm-common-styles/styles/variables';
+
+.custom-content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
