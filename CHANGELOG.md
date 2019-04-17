@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Added initial Storybook implementation 
 
 ## 1.0.3
 * Updated npm components
