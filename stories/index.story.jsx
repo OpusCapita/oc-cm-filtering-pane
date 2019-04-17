@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, object, number } from '@storybook/addon-knobs';
+import { boolean, object } from '@storybook/addon-knobs';
 import { Store, StateDecorator } from '@sambego/storybook-state';
 
 // Application
