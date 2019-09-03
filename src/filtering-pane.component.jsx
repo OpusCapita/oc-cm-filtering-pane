@@ -54,7 +54,6 @@ class FilteringPane extends React.PureComponent {
     );
   };
 
-
   renderLeftAlignedContent = () => {
     const { leftAlignedContent } = this.props;
     return (
@@ -108,7 +107,10 @@ FilteringPane.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   tabs: PropTypes.shape({
-    activeKey: PropTypes.number,
+    activeKey: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.shape({}),
+    ]),
     list: PropTypes.arrayOf(PropTypes.shape({})),
     showNavItemBorder: PropTypes.bool,
     showNavItemTooltip: PropTypes.bool,
