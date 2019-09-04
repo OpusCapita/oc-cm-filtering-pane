@@ -5,7 +5,7 @@ export default class ComponentView extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: 0,
+      activeTab: 0, // number or object
     };
   }
 
@@ -13,9 +13,16 @@ export default class ComponentView extends React.PureComponent {
     alert(`Menu item #${e.target.id} clicked`); // eslint-disable-line
   };
 
-  onTabChange = (href) => {
+  onTabChange = (item) => {
     // Mocking page change
-    const newActiveKey = parseInt(href.replace(/[^0-9]/g, ''), 10) - 1;
+    let newActiveKey;
+    let selected = item;
+    if (typeof item === 'object') {
+      selected = item.value;
+      newActiveKey = item;
+    } else {
+      newActiveKey = parseInt(selected.replace(/[^0-9]/g, ''), 10) - 1;
+    }
     this.setState({ activeTab: newActiveKey });
   };
 
