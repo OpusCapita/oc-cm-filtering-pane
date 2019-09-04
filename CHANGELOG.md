@@ -4,6 +4,9 @@
 
 ## <next>
 
+## 1.0.4
+* Updated @opuscapita/react-responsive-navbar version
+
 ## 1.0.3
 * Updated npm components
 
