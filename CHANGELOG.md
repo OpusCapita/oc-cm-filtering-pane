@@ -3,6 +3,7 @@
 * In general follow (https://docs.npmjs.com/getting-started/semantic-versioning) versioning.
 
 ## <next>
+* Upgraded react and `@opuscapita/react-floating-select` versions
 
 ## 1.0.4
 * Updated @opuscapita/react-responsive-navbar version
