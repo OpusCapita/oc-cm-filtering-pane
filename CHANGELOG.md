@@ -4,7 +4,7 @@
 
 ## <next>
 
-## 1.2.0
+## 1.1.0
 * Upgraded react and `@opuscapita/react-floating-select` versions
 
 ## 1.0.4
